@@ -16,13 +16,12 @@ class Location(models.Model):
 	owner = models.ForeignKey(User_Regular) 
 
 class Box(models.Model):
-	Box_ID = models.IntegerField(primary_key=True)    
-	
+	  
 	Location = models.ForeignKey(Location)
 
 class Log(models.Model):
 	NumberOfCaps =  models.IntegerField()
-	Timestamp = models.TimeField()
+	Timestamp = models.DateTimeField(auto_now_add = True)
 	isFull = models.BooleanField()
 	Box = models.ForeignKey(Box)
 
