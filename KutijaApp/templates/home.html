@@ -1,8 +1,40 @@
+<!DOCTYPE html>
 <html>
 <head>
+{% load staticfiles %}
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="{% static 'KutijaApp/style.css' %}"/>
+
+<script
+src="http://maps.googleapis.com/maps/api/js">
+</script>
+
+<script>
+var myCenter=new google.maps.LatLng(44.790721, 20.437134);
+ 
+function initialize()
+{
+var mapProp = {
+  center:myCenter,
+  zoom:14,
+  mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+
+var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+var marker=new google.maps.Marker({
+  position:{lat:44.772954, lng:20.474930},
+  });
+
+marker.setMap(map);
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
 </head>
 <body>
 	
@@ -16,10 +48,12 @@
 
 		</ul>
 	</nav>
-
+	<div>
 	<p style ="margin-top:100px;">{{capSum}}</p>
 	<p>{{percent}}%</p>
 	<p>{{daysLeft}}</p>
+	</div>
+	<div id="googleMap" style="width:700px; height:450px;"></div>
 	
 </body>
 </html>
