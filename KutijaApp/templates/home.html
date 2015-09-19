@@ -19,7 +19,7 @@ function initialize()
 {
 var mapProp = {
   center:myCenter,
-  zoom:14,
+  zoom:12,
   mapTypeId:google.maps.MapTypeId.ROADMAP
   };
 
@@ -27,6 +27,7 @@ var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
 
 var marker=new google.maps.Marker({
   position:{lat:44.772954, lng:20.474930},
+  title: 'Fakultet Organizacionih Nauka',
   });
 
 marker.setMap(map);
