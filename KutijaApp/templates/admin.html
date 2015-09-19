@@ -20,30 +20,38 @@
 		<ul>
 			{% for location in locations%}
 			<li>
-				<p>Lokacija:</p>
 				
-				{{location.name}}
+				<a href = "#" data-toggle="modal" data-target="#editLocation">
+					<button class="btn btn-warning">
+						Lokacija: {{location.name}}
+					</button>
+				</a>
+				
+				<br>
+				<br>
 				<ul>
 					{% for box in boxes%}
 						{% if box.Location == location %}
 						<li>
-							<p>Kutija:</p>
-							
-							{{box.id}}
-
+							<button class="btn btn-danger">Kutija: {{box.id}} </button>
 						</li>
+						<br>
 						{% endif %}
 					{% endfor %}
 
 				</ul>
+
+			
 			</li>
 			{% endfor %}
 
 		</ul>
 	</div> <!-- Locations list end-->
 
-	<div>
-	<a href = "#" data-toggle="modal" data-target="#addLocation"><button class="btn btn-primary pull-left">Dodaj lokaciju</button></a></li>
+	<div> <!-- Moderator buttons begin-->
+	<a href = "#" data-toggle="modal" data-target="#addLocation"><button class="btn btn-primary ">Dodaj lokaciju</button></a>
+
+	<a href = "#" data-toggle="modal" data-target="#addBox"><button class="btn btn-primary">Dodaj kutiju</button></a>
 		
 	</div>
 
