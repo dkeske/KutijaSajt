@@ -9,6 +9,7 @@ urlpatterns = patterns('',
     url(r'^admin/$', views.admin, name="admin"),
     url(r'^admin/addlocation/$', views.addlocation, name="addlocation"),
     url(r'^admin/addbox/$', views.addbox, name="addbox"),
+    url(r'^admin/adduser/$', views.adduser, name="adduser"),
     #url(r'^cart/remove/$', views.removeFromCart, name="remove"),
     #url(r'^cart/checkout/$', views.checkout, name="checkout"),
     

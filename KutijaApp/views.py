@@ -32,6 +32,21 @@ def makeLog():
 	
 	newLog.save()
 
+def adduser(request):
+	request.session.set_expiry(0)
+
+	username = request.POST['username']
+	password = request.POST['pass']
+	email = request.POST['email']
+
+	user = User.objects.create_user(username, email, password)
+	newUser = User_Regular()
+	newUser.user = user
+	newUser.isAdmin = False
+	newUser.save()
+
+	return redirect('admin')
+
 def getCapSum():
 	capSum = 0
 	logs = Log.objects.all()

@@ -52,6 +52,8 @@
 	<a href = "#" data-toggle="modal" data-target="#addLocation"><button class="btn btn-primary ">Dodaj lokaciju</button></a>
 
 	<a href = "#" data-toggle="modal" data-target="#addBox"><button class="btn btn-primary">Dodaj kutiju</button></a>
+
+	<a href = "#" data-toggle="modal" data-target="#addUser"><button class="btn btn-primary">Dodaj korisnika</button></a>
 		
 	</div>
 
@@ -107,7 +109,31 @@
   						
 					</div>
 					<div class="modal-footer">
-						<input type="submit" class="btn btn-success pull-left" value="Dodaj lokaciju!"/>
+						<input type="submit" class="btn btn-success pull-left" value="Dodaj kutiju!"/>
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zatvori</button>
+					</div>
+				</form>
+				
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="addUser">
+		<div class = "modal-dialog">
+			<div class = "modal-content">
+				<form method = "post" action="adduser/" name="form">
+					{% csrf_token %}
+					<div class="modal-body login">
+						<b>e-mail:</b>
+						<input class="form-control" type="email" name="email"/>
+						<b>Korisnicko ime:</b>
+						<input class="form-control" name="username"/>
+						<b>sifra:</b>
+						<input class="form-control" type = "password" name="pass"/>
+						
+					</div>
+					<div class="modal-footer">
+						<input type="submit" class="btn btn-success pull-left" value="Dodaj korisnika!"/>
 						<button type="button" class="btn btn-default" data-dismiss="modal">Zatvori</button>
 					</div>
 				</form>
