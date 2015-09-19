@@ -17,23 +17,24 @@ GOAL = 100
 def makeLog():
 	user = User.objects.create_user('mika', 'm@g.com', 'mikapass')
 	newUser = User_Regular()
+	newUser.isAdmin = False
 	newUser.user = user
 	newUser.save()
 
-	newLocation = Location()
+	#newLocation = Location()
 	#userP = authenticate(username = 'john', password = 'johnpass')
 	#newUser = User_Regular.objects.get(user = userP)
-	newLocation.owner = newUser
-	newLocation.save()
+	#newLocation.owner = newUser
+	#newLocation.save()
 
 	
-	newBox = Box(Location = newLocation)
+	#newBox = Box(Location = newLocation)
 	
-	newBox.save()
+	#newBox.save()
 
-	newLog = Log(NumberOfCaps = 100, isFull = False, Box = newBox)
+	#newLog = Log(NumberOfCaps = 100, isFull = False, Box = newBox)
 	
-	newLog.save()
+	#newLog.save()
 
 def adduser(request):
 	request.session.set_expiry(0)
