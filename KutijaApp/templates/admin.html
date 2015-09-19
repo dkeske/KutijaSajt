@@ -1,0 +1,49 @@
+<html>
+<head>
+	{% load staticfiles %}
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="{% static 'KutijaApp/style.css' %}"/>
+	<title>Admin Panel</title>
+</head>
+<body>
+	<div> <!-- Navbar begin-->
+	{% include "navbar.html" %}
+	</div> <!-- Navbar end -->
+
+	<div> <!-- Locations list begin -->
+		<br>
+		<br>
+		<br>
+		<ul>
+			{% for location in locations%}
+			<li>
+				<p>Lokacija:</p>
+				
+				{{location.name}}
+				<ul>
+					{% for box in boxes%}
+					<li>
+						<p>Kutija:</p>
+						
+						{{box.id}}
+
+					</li>
+					{% endfor %}
+
+				</ul>
+			</li>
+			{% endfor %}
+
+		</ul>
+	</div> <!-- Locations list end-->
+
+	<div>
+		<button>Dodaj lokaciju</button>
+	</div>
+
+
+</body>
+</html>

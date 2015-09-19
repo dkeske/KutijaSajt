@@ -66,3 +66,9 @@ def home(request):
 	ctx = {'capSum':capSum, 'percent': percentCompleted(),'daysLeft':daysLeft()}
 	return render(request, "home.html", ctx)
 
+def admin(request):
+	locations = Location.objects.all()
+	boxes = Box.objects.all()
+
+	ctx = {'locations':locations, 'boxes':boxes}
+	return render(request, "admin.html", ctx)
