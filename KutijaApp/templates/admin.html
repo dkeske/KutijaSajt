@@ -25,12 +25,14 @@
 				{{location.name}}
 				<ul>
 					{% for box in boxes%}
-					<li>
-						<p>Kutija:</p>
-						
-						{{box.id}}
+						{% if box.location == location %}
+						<li>
+							<p>Kutija:</p>
+							
+							{{box.id}}
 
-					</li>
+						</li>
+						{% endif %}
 					{% endfor %}
 
 				</ul>
