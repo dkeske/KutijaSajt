@@ -1,18 +1,21 @@
 # Create your views here.
+from django import forms
+from django.utils import timezone 
 from django.shortcuts import render, redirect
-from models import Location, Box, Log, User_Regular
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import csrf_exempt
+from django.http import HttpResponse
+from models import Location, Box, Log, User_Regular
 from datetime import datetime, timedelta 
-from django.utils import timezone 
-from django import forms
 import pytz
+
 
 GOAL = 100
 
 def makeLog():
-	user = User.objects.create_user('john', 's@g.com', 'johnpass')
+	user = User.objects.create_user('mika', 'm@g.com', 'mikapass')
 	newUser = User_Regular()
 	newUser.user = user
 	newUser.save()
@@ -28,7 +31,7 @@ def makeLog():
 	
 	newBox.save()
 
-	newLog = Log(NumberOfCaps = 10, isFull = False, Box = newBox)
+	newLog = Log(NumberOfCaps = 100, isFull = False, Box = newBox)
 	
 	newLog.save()
 
@@ -92,3 +95,8 @@ def addlocation(request):
 	location.save()	
 
 	return redirect('admin')
+
+@csrf_exempt
+def api(request):
+	makeLog()
+	return HttpResponse(status = 200)
