@@ -13,6 +13,21 @@
 
 	{% include "navbar.html" %}
 
+	<div id="locations" class="row">
+		{% for location in locations %}
+	  	<a href="/lokacija?id={{location.id}}"><div class="col-md-4 centerdv well locationPost">
+	  	<img src={{location.locationImg}} style="max-width:100%">
+	  	<br>
+	  	<b>{{location.name}}</b>
+	  	<br>
+	  	<p>{{location.description}}</p>
+	  	<a href={{location.locationLink}}>veb sajt</a>
+	  	
+	  	</div></a>
+	  	{% endfor %}
+
+
+	</div>
 	
 </body>
 </html>

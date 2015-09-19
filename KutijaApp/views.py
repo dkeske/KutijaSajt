@@ -75,6 +75,9 @@ def daysLeft():
 			capSum+= log.NumberOfCaps
 	
 	mean = float(capSum)/5
+	if mean == 0:
+		return 30
+		
 	daysLeft = (GOAL-(getCapSum()%GOAL))/mean
 	
 	return daysLeft
@@ -126,5 +129,17 @@ def api(request):
 	makeLog()
 	return HttpResponse(status = 200)
 
+def locations(request):
+	
+	locations = Location.objects.all()
 
+	ctx = {'locations': locations}
+
+	return render(request, "locations.html", ctx)
+
+def location(request):
+	location_id = request.GET.get('id')
+	location = Location.objects.get(id = location_id)
+	ctx = {'location': location} 
+	return render(request, "location.html",ctx)
 
