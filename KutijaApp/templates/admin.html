@@ -41,7 +41,45 @@
 	</div> <!-- Locations list end-->
 
 	<div>
-		<button>Dodaj lokaciju</button>
+	<a href = "#" data-toggle="modal" data-target="#addLocation"><button class="btn btn-primary pull-left">Dodaj lokaciju</button></a></li>
+		
+	</div>
+
+	<div class="modal fade" id="addLocation">
+		<div class = "modal-dialog">
+			<div class = "modal-content">
+				<form method = "post" action="addlocation/" name="form">
+					{% csrf_token %}
+					<div class="modal-body login">
+						<b>Naziv lokacije:</b>
+						<input class="form-control" name="name"/>
+						<b>Slika lokacije:</b>
+						<input class="form-control" name="locationImg"/>
+						<b>Opis:</b>
+						<input class="form-control" name="description"/>
+						<b>Veb sajt:</b>
+						<input class="form-control" name="locationLink"/>
+						<b>Longitude:</b>
+						<input class="form-control" name="longitude"/>
+						<b>Latitude:</b>
+						<input class="form-control" name="latitude"/>
+						<b>Korisnik:</b>
+						<label for="sel1">Select list:</label>
+  						<select class="form-control" name="sel1">
+					    {% for user in users %}
+					    <option value = {{user.user.id}}>{{user.user.username}}</option>
+					    {% endfor %}
+  						</select>
+  						
+					</div>
+					<div class="modal-footer">
+						<input type="submit" class="btn btn-success pull-left" value="Dodaj lokaciju!"/>
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zatvori</button>
+					</div>
+				</form>
+				
+			</div>
+		</div>
 	</div>
 
 

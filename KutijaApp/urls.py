@@ -7,11 +7,11 @@ urlpatterns = patterns('',
 
     
     url(r'^admin/$', views.admin, name="admin"),
-
+    url(r'^admin/addlocation/$', views.addlocation, name="addlocation"),
 
     #url(r'^cart/remove/$', views.removeFromCart, name="remove"),
     #url(r'^cart/checkout/$', views.checkout, name="checkout"),
-    #url(r'^cart/checkout/complete/$', views.completeOrder, name="complete_order"),
+    
     #url(r'^admin-login/$', views.adminLogin, name= "admin_login"),
     #url(r'^admin-panel/$', views.adminDashboard, name= 'admin'),
 )

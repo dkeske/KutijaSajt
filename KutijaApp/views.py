@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from datetime import datetime, timedelta 
 from django.utils import timezone 
+from django import forms
 import pytz
 
 GOAL = 100
@@ -69,6 +70,25 @@ def home(request):
 def admin(request):
 	locations = Location.objects.all()
 	boxes = Box.objects.all()
+	users = User_Regular.objects.all()
 
-	ctx = {'locations':locations, 'boxes':boxes}
+	ctx = {'locations':locations, 'boxes':boxes, 'users':users}
 	return render(request, "admin.html", ctx)
+
+def addlocation(request):
+	request.session.set_expiry(0)
+	
+	location = Location()
+	location.name = request.POST['name']
+	location.locationImg = request.POST['locationImg']
+	location.description = request.POST['description']
+	location.locationLink = request.POST['locationLink']
+	location.longitude = request.POST['longitude']
+	location.latitude = request.POST['latitude']
+	user_id = request.POST['sel1']
+	userUser = User.objects.get(id = user_id)
+	user = User_Regular.objects.get(user = userUser)
+	location.owner = user
+	location.save()	
+
+	return redirect('admin')
