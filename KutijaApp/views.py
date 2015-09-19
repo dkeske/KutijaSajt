@@ -14,27 +14,14 @@ import pytz
 
 GOAL = 100
 
-def makeLog():
-	user = User.objects.create_user('mika', 'm@g.com', 'mikapass')
-	newUser = User_Regular()
-	newUser.isAdmin = False
-	newUser.user = user
-	newUser.save()
+def makeLog(number, full, box_ID):
+	box = Box.objects.get(id = box_ID)
 
-	#newLocation = Location()
-	#userP = authenticate(username = 'john', password = 'johnpass')
-	#newUser = User_Regular.objects.get(user = userP)
-	#newLocation.owner = newUser
-	#newLocation.save()
+	log = Log(Box = box)
+	log.NumberOfCaps = number
+	log.isFull = full
+	log.save()
 
-	
-	#newBox = Box(Location = newLocation)
-	
-	#newBox.save()
-
-	#newLog = Log(NumberOfCaps = 100, isFull = False, Box = newBox)
-	
-	#newLog.save()
 
 def adduser(request):
 	request.session.set_expiry(0)
@@ -123,8 +110,8 @@ def addbox(request):
 
 @csrf_exempt
 def api(request):
-	makeLog()
+	number = request.POST['NumberOfCaps']
+	full = request.POST['isFull']
+	box_ID = request.POST['Box']
+	makeLog(number, full, box_ID)
 	return HttpResponse(status = 200)
-
-
-
