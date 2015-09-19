@@ -96,7 +96,18 @@ def addlocation(request):
 
 	return redirect('admin')
 
+<<<<<<< HEAD
 @csrf_exempt
 def api(request):
 	makeLog()
 	return HttpResponse(status = 200)
+=======
+def addbox(request):
+	request.session.set_expiry(0)
+	box = Box()
+	location_id = request.POST['sel2']
+	box.Location = Location.objects.get(id = location_id)
+	box.save()
+
+	return redirect('admin')
+>>>>>>> origin/master

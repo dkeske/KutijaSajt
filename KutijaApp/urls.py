@@ -8,10 +8,15 @@ urlpatterns = patterns('',
     
     url(r'^admin/$', views.admin, name="admin"),
     url(r'^admin/addlocation/$', views.addlocation, name="addlocation"),
+<<<<<<< HEAD
 
     url(r'^api/$', views.api, name="api"),
 
 
+=======
+    url(r'^admin/addbox/$', views.addbox, name="addbox"),
+    #url(r'^cart/remove/$', views.removeFromCart, name="remove"),
+>>>>>>> origin/master
     #url(r'^cart/checkout/$', views.checkout, name="checkout"),
     
     #url(r'^admin-login/$', views.adminLogin, name= "admin_login"),

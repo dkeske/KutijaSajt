@@ -92,6 +92,29 @@
 		</div>
 	</div>
 
+	<div class="modal fade" id="addBox">
+		<div class = "modal-dialog">
+			<div class = "modal-content">
+				<form method = "post" action="addbox/" name="form">
+					{% csrf_token %}
+					<div class="modal-body login">
+						<b>Lokacija kutije:</b>
+  						<select class="form-control" name="sel2">
+					    {% for location in locations %}
+					    <option value = {{location.id}}>{{location.name}}</option>
+					    {% endfor %}
+  						</select>
+  						
+					</div>
+					<div class="modal-footer">
+						<input type="submit" class="btn btn-success pull-left" value="Dodaj lokaciju!"/>
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zatvori</button>
+					</div>
+				</form>
+				
+			</div>
+		</div>
+	</div>
 
 </body>
 </html>
