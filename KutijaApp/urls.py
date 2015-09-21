@@ -10,7 +10,10 @@ urlpatterns = patterns('',
     url(r'^admin/addlocation/$', views.addlocation, name="addlocation"),
     url(r'^admin/addbox/$', views.addbox, name="addbox"),
     url(r'^admin/adduser/$', views.adduser, name="adduser"),
+    url(r'^lokacije/$', views.locations, name="locations"),
+    url(r'^lokacija$', views.location, name="location"),
     
     url(r'^api/$', views.api, name="api"),
+
 
 )

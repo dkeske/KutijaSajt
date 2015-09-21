@@ -7,6 +7,16 @@ body{
 #googleMap{
 	margin-right: auto;
 	margin-left: auto;
+	height: 500px;
+	width: 800px;
+
+}
+#treci{
+
+	height: 600px;
+	width: 100%;
+	background:beige;
+
 }
 
 #chart-area{
@@ -19,20 +29,20 @@ body{
 }
 #kolone{
 	width: 100%;
-	height: 400px;
+	height: 600px;
 	text-align:center;
 }
 
 .procenatTekst
 {
-margin-top: -29%;
-margin-bottom: 29%;
+	margin-top: -29%;
+	margin-bottom: 29%;
 }
 .procenatTekst h5
 {
-margin-bottom: 0;
-margin-top: 0;
-font-size: 200%;
+	margin-bottom: 0;
+	margin-top: 0;
+	font-size: 200%;
 }
 #dayNumber{
 	margin-top: 5.5%;
@@ -44,7 +54,35 @@ font-size: 200%;
 	font-family: Impact, Charcoal, sans-serif;
 }
 
+#locations{
+	margin-top: 75px;
+}
+
+.locationPost{
+	margin-right: 10px;
+}
+
+#locationImg{
+	width: 100%;
+	height: 20%;
+}
+
 ul
 {
     list-style-type: none;
 }
+.slajder{
+	background-image:linear-gradient(rgba(255,255,255,0.5),rgba(255,255,255,0.5)),url("img/caps1.jpg");
+	background-size: 100% 100%;
+	width: 100%;
+	height: 600px;
+	padding-top: 200px;
+	padding-left: 150px;
+}
+.slajder h1{
+	font-size: 500%;
+	font-family: Impact, Charcoal, sans-serif;
+	color: black;
+
+}
+
