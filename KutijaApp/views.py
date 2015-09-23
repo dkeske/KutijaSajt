@@ -12,7 +12,7 @@ from datetime import datetime, timedelta
 import pytz
 
 
-GOAL = 100
+GOAL = 1000
 
 def makeLog(number, full, box_ID):
 	box = Box.objects.get(id = box_ID)
@@ -67,7 +67,7 @@ def daysLeft():
 		
 	daysLeft = (GOAL-(getCapSum()%GOAL))/mean
 	
-	return daysLeft
+	return round(daysLeft, 2)
 
 def home(request):
 	#makeLog()
