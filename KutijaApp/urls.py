@@ -14,6 +14,6 @@ urlpatterns = patterns('',
     url(r'^lokacija$', views.location, name="location"),
     
     url(r'^api/$', views.api, name="api"),
-
+    
 
 )
